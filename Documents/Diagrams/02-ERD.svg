@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="640" viewBox="0 0 1000 640" font-family="Segoe UI, Arial, sans-serif">
+  <style>
+    .ttl  { font-size: 26px; font-weight: 700; fill: #1e5a96; text-anchor: middle; }
+    .ent  { fill: #eaf2fb; stroke: #1e5a96; stroke-width: 2.5; }
+    .entt { font-size: 17px; font-weight: 700; fill: #143d66; text-anchor: middle; }
+    .rel  { fill: #fff4e0; stroke: #c77b1f; stroke-width: 2.5; }
+    .relt { font-size: 15px; font-weight: 700; fill: #7a4d0c; text-anchor: middle; }
+    .att  { fill: #ffffff; stroke: #7a8ea3; stroke-width: 1.6; }
+    .attt { font-size: 12.5px; fill: #33475b; text-anchor: middle; }
+    .pk   { font-size: 12.5px; fill: #33475b; text-anchor: middle; text-decoration: underline; font-weight: 700; }
+    .ln   { stroke: #7a8ea3; stroke-width: 1.6; fill: none; }
+    .lnb  { stroke: #1e5a96; stroke-width: 2.2; fill: none; }
+    .card { font-size: 15px; font-weight: 700; fill: #c0392b; text-anchor: middle; }
+    .note { font-size: 13px; fill: #6b7f95; text-anchor: middle; }
+  </style>
+
+  <text class="ttl" x="500" y="38">תרשים ישויות וקשרים  ERD</text>
+
+  <!-- ======= entity: ClassType ======= -->
+  <rect class="ent" x="60" y="90" width="190" height="56" rx="4"/>
+  <text class="entt" x="155" y="124">סוג שיעור</text>
+  <ellipse class="att" cx="60"  cy="200" rx="58" ry="20"/>
+  <text class="pk"   x="60"  y="205">קוד סוג</text>
+  <ellipse class="att" cx="185" cy="200" rx="58" ry="20"/>
+  <text class="attt" x="185" y="205">שם השיעור</text>
+  <ellipse class="att" cx="305" cy="150" rx="58" ry="20"/>
+  <text class="attt" x="305" y="155">משך בדקות</text>
+  <line class="ln" x1="90"  y1="146" x2="65"  y2="180"/>
+  <line class="ln" x1="165" y1="146" x2="182" y2="180"/>
+  <line class="ln" x1="250" y1="126" x2="250" y2="146"/>
+
+  <!-- ======= relationship: ClassType - Class ======= -->
+  <g transform="translate(155,290)">
+    <polygon class="rel" points="0,-40 105,0 0,40 -105,0"/>
+    <text class="relt" x="0" y="6">מתקיים כ</text>
+  </g>
+  <line class="lnb" x1="155" y1="146" x2="155" y2="250"/>
+  <text class="card" x="180" y="180">1</text>
+  <line class="lnb" x1="155" y1="330" x2="155" y2="420"/>
+  <text class="card" x="180" y="380">N</text>
+
+  <!-- ======= entity: Class ======= -->
+  <rect class="ent" x="60" y="420" width="190" height="56" rx="4"/>
+  <text class="entt" x="155" y="454">שיעור</text>
+  <ellipse class="att" cx="62"  cy="530" rx="55" ry="20"/>
+  <text class="pk"   x="62"  y="535">קוד שיעור</text>
+  <ellipse class="att" cx="180" cy="530" rx="52" ry="20"/>
+  <text class="attt" x="180" y="535">תאריך</text>
+  <ellipse class="att" cx="290" cy="530" rx="52" ry="20"/>
+  <text class="attt" x="290" y="535">שעה</text>
+  <ellipse class="att" cx="300" cy="470" rx="55" ry="20"/>
+  <text class="attt" x="300" y="475">שם מאמן</text>
+  <ellipse class="att" cx="300" cy="415" rx="60" ry="20"/>
+  <text class="attt" x="300" y="420">מספר מקומות</text>
+  <line class="ln" x1="95"  y1="476" x2="70"  y2="510"/>
+  <line class="ln" x1="150" y1="476" x2="172" y2="510"/>
+  <line class="ln" x1="215" y1="476" x2="270" y2="512"/>
+  <line class="ln" x1="250" y1="462" x2="245" y2="468"/>
+  <line class="ln" x1="250" y1="435" x2="240" y2="418"/>
+
+  <!-- ======= relationship: booking (the link table) ======= -->
+  <g transform="translate(560,448)">
+    <polygon class="rel" points="0,-52 130,0 0,52 -130,0"/>
+    <text class="relt" x="0" y="-4">הזמנה</text>
+    <text class="relt" x="0" y="18" font-size="12" font-weight="400">טבלת קישור</text>
+  </g>
+  <line class="lnb" x1="250" y1="448" x2="430" y2="448"/>
+  <text class="card" x="330" y="435">N</text>
+  <line class="lnb" x1="690" y1="448" x2="820" y2="448"/>
+  <text class="card" x="755" y="435">M</text>
+
+  <!-- attributes of the relationship -->
+  <ellipse class="att" cx="560" cy="580" rx="55" ry="20"/>
+  <text class="attt" x="560" y="585">סטטוס</text>
+  <ellipse class="att" cx="690" cy="580" rx="62" ry="20"/>
+  <text class="attt" x="690" y="585">תאריך הזמנה</text>
+  <line class="ln" x1="560" y1="500" x2="560" y2="560"/>
+  <line class="ln" x1="590" y1="495" x2="672" y2="560"/>
+  <text class="note" x="625" y="620">ממתין / אושר / בוטל</text>
+
+  <!-- ======= entity: Client ======= -->
+  <rect class="ent" x="820" y="420" width="150" height="56" rx="4"/>
+  <text class="entt" x="895" y="454">לקוח</text>
+  <ellipse class="att" cx="880" cy="330" rx="55" ry="20"/>
+  <text class="pk"   x="880" y="335">קוד לקוח</text>
+  <ellipse class="att" cx="880" cy="270" rx="52" ry="20"/>
+  <text class="attt" x="880" y="275">שם מלא</text>
+  <ellipse class="att" cx="880" cy="210" rx="52" ry="20"/>
+  <text class="attt" x="880" y="215">טלפון</text>
+  <ellipse class="att" cx="880" cy="150" rx="62" ry="20"/>
+  <text class="attt" x="880" y="155">שם משתמש</text>
+  <ellipse class="att" cx="880" cy="90"  rx="55" ry="20"/>
+  <text class="attt" x="880" y="95">האם מנהל</text>
+  <line class="ln" x1="890" y1="420" x2="882" y2="350"/>
+  <line class="ln" x1="880" y1="310" x2="880" y2="290"/>
+  <line class="ln" x1="880" y1="250" x2="880" y2="230"/>
+  <line class="ln" x1="880" y1="190" x2="880" y2="170"/>
+  <line class="ln" x1="880" y1="130" x2="880" y2="110"/>
+
+  <text class="note" x="560" y="120">הקשר בין לקוח לשיעור הוא רבים לרבים (M:N),</text>
+  <text class="note" x="560" y="142">ולכן הוא הופך במסד הנתונים לטבלת קישור בשם Bookings</text>
+</svg>

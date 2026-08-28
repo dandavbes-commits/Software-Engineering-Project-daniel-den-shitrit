@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1060" height="730" viewBox="0 0 1060 730" font-family="Segoe UI, Arial, sans-serif">
+  <style>
+    .ttl   { font-size: 26px; font-weight: 700; fill: #1e5a96; }
+    .uc    { fill: #eaf2fb; stroke: #1e5a96; stroke-width: 2; }
+    .ucm   { fill: #eef7ee; stroke: #2e7d4f; stroke-width: 2; }
+    .uct   { font-size: 15px; fill: #143d66; text-anchor: middle; }
+    .line  { stroke: #7a8ea3; stroke-width: 1.4; fill: none; }
+    .act   { font-size: 16px; font-weight: 700; fill: #143d66; text-anchor: middle; }
+    .sys   { fill: none; stroke: #1e5a96; stroke-width: 2.5; stroke-dasharray: 8 5; }
+    .syst  { font-size: 17px; font-weight: 700; fill: #1e5a96; text-anchor: middle; }
+    .stick { stroke: #143d66; stroke-width: 2.5; fill: none; }
+    .cap   { font-size: 13px; fill: #6b7f95; text-anchor: middle; }
+  </style>
+
+  <text class="ttl" x="530" y="40" text-anchor="middle">תרשים מקרי שימוש  Use Case</text>
+
+  <rect class="sys" x="210" y="68" width="630" height="612" rx="12"/>
+  <text class="syst" x="525" y="95">מערכת GymTime</text>
+
+  <!-- ===== actor: client (right) ===== -->
+  <g transform="translate(955,240)">
+    <circle class="stick" cx="0" cy="-32" r="14"/>
+    <line class="stick" x1="0" y1="-18" x2="0" y2="22"/>
+    <line class="stick" x1="-20" y1="-4" x2="20" y2="-4"/>
+    <line class="stick" x1="0" y1="22" x2="-16" y2="52"/>
+    <line class="stick" x1="0" y1="22" x2="16" y2="52"/>
+    <text class="act" x="0" y="78">לקוח</text>
+    <text class="cap" x="0" y="98">משתמש רגיל</text>
+  </g>
+
+  <!-- ===== actor: manager (left) ===== -->
+  <g transform="translate(105,455)">
+    <circle class="stick" cx="0" cy="-32" r="14"/>
+    <line class="stick" x1="0" y1="-18" x2="0" y2="22"/>
+    <line class="stick" x1="-20" y1="-4" x2="20" y2="-4"/>
+    <line class="stick" x1="0" y1="22" x2="-16" y2="52"/>
+    <line class="stick" x1="0" y1="22" x2="16" y2="52"/>
+    <text class="act" x="0" y="78">מנהל</text>
+    <text class="cap" x="0" y="98">בעל העסק</text>
+  </g>
+
+  <!-- ===== client use cases (right column) ===== -->
+  <g>
+    <ellipse class="uc" cx="660" cy="132" rx="115" ry="27"/>
+    <text class="uct" x="660" y="138">הרשמה למערכת</text>
+
+    <ellipse class="uc" cx="660" cy="197" rx="115" ry="27"/>
+    <text class="uct" x="660" y="203">התחברות</text>
+
+    <ellipse class="uc" cx="660" cy="262" rx="115" ry="27"/>
+    <text class="uct" x="660" y="268">צפייה בלוח השיעורים</text>
+
+    <ellipse class="uc" cx="660" cy="327" rx="115" ry="27"/>
+    <text class="uct" x="660" y="333">הזמנת מקום בשיעור</text>
+
+    <ellipse class="uc" cx="660" cy="392" rx="115" ry="27"/>
+    <text class="uct" x="660" y="398">צפייה בהזמנות שלי</text>
+
+    <ellipse class="uc" cx="660" cy="457" rx="115" ry="27"/>
+    <text class="uct" x="660" y="463">ביטול הזמנה</text>
+  </g>
+
+  <!-- ===== manager use cases (left column) ===== -->
+  <g>
+    <ellipse class="ucm" cx="382" cy="327" rx="118" ry="27"/>
+    <text class="uct" x="382" y="333">אישור או דחיית הזמנה</text>
+
+    <ellipse class="ucm" cx="382" cy="392" rx="118" ry="27"/>
+    <text class="uct" x="382" y="398">צפייה בנרשמים לשיעור</text>
+
+    <ellipse class="ucm" cx="382" cy="502" rx="118" ry="27"/>
+    <text class="uct" x="382" y="508">ניהול סוגי שיעורים</text>
+
+    <ellipse class="ucm" cx="382" cy="567" rx="118" ry="27"/>
+    <text class="uct" x="382" y="573">פתיחת ועדכון שיעור</text>
+
+    <ellipse class="ucm" cx="382" cy="632" rx="118" ry="27"/>
+    <text class="uct" x="382" y="638">ביטול שיעור</text>
+  </g>
+
+  <!-- links: client actor -> its use cases -->
+  <path class="line" d="M930,215 C860,160 820,134 775,132"/>
+  <path class="line" d="M930,222 C860,200 820,197 775,197"/>
+  <path class="line" d="M930,232 C860,245 820,260 775,262"/>
+  <path class="line" d="M930,244 C860,285 820,322 775,327"/>
+  <path class="line" d="M930,256 C865,320 820,386 775,392"/>
+  <path class="line" d="M930,266 C870,360 820,450 775,457"/>
+
+  <!-- links: manager actor -> its use cases -->
+  <path class="line" d="M130,430 C180,380 220,332 264,327"/>
+  <path class="line" d="M130,437 C180,410 220,390 264,392"/>
+  <path class="line" d="M130,462 C180,480 220,500 264,502"/>
+  <path class="line" d="M130,470 C180,520 220,564 264,567"/>
+  <path class="line" d="M130,478 C180,555 220,628 264,632"/>
+
+  <!-- manager also uses the shared "login" use case -->
+  <path class="line" d="M130,422 C230,250 420,200 545,197"/>
+</svg>

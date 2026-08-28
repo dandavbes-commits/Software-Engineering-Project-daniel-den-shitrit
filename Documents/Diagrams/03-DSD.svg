@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="700" viewBox="0 0 1080 700" font-family="Segoe UI, Arial, sans-serif">
+  <style>
+    .ttl  { font-size: 26px; font-weight: 700; fill: #1e5a96; text-anchor: middle; }
+    .hd   { fill: #1e5a96; }
+    .hdt  { font-size: 16px; font-weight: 700; fill: #ffffff; text-anchor: middle; }
+    .bx   { fill: #ffffff; stroke: #1e5a96; stroke-width: 2; }
+    .row  { font-size: 13.5px; fill: #33475b; }
+    .key  { font-size: 13.5px; font-weight: 700; fill: #b8860b; }
+    .fk   { font-size: 13.5px; font-weight: 700; fill: #2e7d4f; }
+    .sep  { stroke: #d5dee7; stroke-width: 1; }
+    .rel  { stroke: #c0392b; stroke-width: 2.2; fill: none; }
+    .cardt{ font-size: 15px; font-weight: 700; fill: #c0392b; }
+    .lgd  { font-size: 13px; fill: #445; }
+    .note { font-size: 13px; fill: #6b7f95; }
+  </style>
+  <defs>
+    <marker id="crow" markerWidth="14" markerHeight="14" refX="13" refY="7" orient="auto">
+      <path d="M13,1 L1,7 L13,13" fill="none" stroke="#c0392b" stroke-width="2"/>
+    </marker>
+    <marker id="one" markerWidth="12" markerHeight="14" refX="4" refY="7" orient="auto">
+      <path d="M4,2 L4,12" fill="none" stroke="#c0392b" stroke-width="2.4"/>
+    </marker>
+  </defs>
+
+  <text class="ttl" x="540" y="38">תרשים מבנה נתונים  DSD</text>
+
+  <!-- ================= ClassTypes ================= -->
+  <g transform="translate(60,90)">
+    <rect class="bx" x="0" y="0" width="250" height="150" rx="6"/>
+    <rect class="hd" x="0" y="0" width="250" height="34" rx="6"/>
+    <rect class="hd" x="0" y="22" width="250" height="12"/>
+    <text class="hdt" x="125" y="23">ClassTypes</text>
+    <text class="key" x="12" y="57">PK  TypeID              int</text>
+    <line class="sep" x1="8" y1="66" x2="242" y2="66"/>
+    <text class="row" x="12" y="86">TypeName          nvarchar(50)</text>
+    <text class="row" x="12" y="108">TypeDescription  nvarchar(200)</text>
+    <text class="row" x="12" y="130">DurationMinutes  int</text>
+  </g>
+
+  <!-- ================= Classes ================= -->
+  <g transform="translate(60,360)">
+    <rect class="bx" x="0" y="0" width="250" height="238" rx="6"/>
+    <rect class="hd" x="0" y="0" width="250" height="34" rx="6"/>
+    <rect class="hd" x="0" y="22" width="250" height="12"/>
+    <text class="hdt" x="125" y="23">Classes</text>
+    <text class="key" x="12" y="57">PK  ClassID            int</text>
+    <line class="sep" x1="8" y1="66" x2="242" y2="66"/>
+    <text class="fk"  x="12" y="86">FK  TypeID              int</text>
+    <line class="sep" x1="8" y1="95" x2="242" y2="95"/>
+    <text class="row" x="12" y="115">TrainerName       nvarchar(60)</text>
+    <text class="row" x="12" y="137">ClassDate            date</text>
+    <text class="row" x="12" y="159">StartTime             time</text>
+    <text class="row" x="12" y="181">MaxParticipants  int</text>
+    <text class="row" x="12" y="203">RoomName          nvarchar(30)</text>
+    <text class="row" x="12" y="225">IsCancelled          bit</text>
+  </g>
+
+  <!-- ================= Bookings (link table) ================= -->
+  <g transform="translate(415,400)">
+    <rect class="bx" x="0" y="0" width="250" height="172" rx="6" stroke="#c77b1f" stroke-width="2.5"/>
+    <rect class="hd" x="0" y="0" width="250" height="34" rx="6" fill="#c77b1f"/>
+    <rect class="hd" x="0" y="22" width="250" height="12" fill="#c77b1f"/>
+    <text class="hdt" x="125" y="23">Bookings</text>
+    <text class="key" x="12" y="57">PK  BookingID       int</text>
+    <line class="sep" x1="8" y1="66" x2="242" y2="66"/>
+    <text class="fk"  x="12" y="86">FK  ClientID           int</text>
+    <text class="fk"  x="12" y="108">FK  ClassID            int</text>
+    <line class="sep" x1="8" y1="117" x2="242" y2="117"/>
+    <text class="row" x="12" y="137">BookingDate      datetime</text>
+    <text class="row" x="12" y="159">Status                 nvarchar(10)</text>
+    <text class="note" x="0" y="196">טבלת הקישור  M:N</text>
+  </g>
+
+  <!-- ================= Clients ================= -->
+  <g transform="translate(770,330)">
+    <rect class="bx" x="0" y="0" width="255" height="238" rx="6"/>
+    <rect class="hd" x="0" y="0" width="255" height="34" rx="6"/>
+    <rect class="hd" x="0" y="22" width="255" height="12"/>
+    <text class="hdt" x="127" y="23">Clients</text>
+    <text class="key" x="12" y="57">PK  ClientID           int</text>
+    <line class="sep" x1="8" y1="66" x2="247" y2="66"/>
+    <text class="row" x="12" y="86">FullName            nvarchar(60)</text>
+    <text class="row" x="12" y="108">Phone                  nvarchar(15)</text>
+    <text class="row" x="12" y="130">Email                    nvarchar(80)</text>
+    <text class="row" x="12" y="152">UserName          nvarchar(30)</text>
+    <text class="row" x="12" y="174">UserPassword    nvarchar(64)</text>
+    <text class="row" x="12" y="196">IsManager           bit</text>
+    <text class="row" x="12" y="218">JoinDate               date</text>
+  </g>
+
+  <!-- ============ relations ============ -->
+  <!-- ClassTypes 1 : N Classes -->
+  <path class="rel" d="M185,246 L185,354" marker-start="url(#one)" marker-end="url(#crow)"/>
+  <text class="cardt" x="196" y="272">1</text>
+  <text class="cardt" x="196" y="342">N</text>
+
+  <!-- Classes 1 : N Bookings -->
+  <path class="rel" d="M317,470 L408,470" marker-start="url(#one)" marker-end="url(#crow)"/>
+  <text class="cardt" x="326" y="459">1</text>
+  <text class="cardt" x="392" y="459">N</text>
+
+  <!-- Clients 1 : N Bookings -->
+  <path class="rel" d="M763,440 L672,440" marker-start="url(#one)" marker-end="url(#crow)"/>
+  <text class="cardt" x="748" y="429">1</text>
+  <text class="cardt" x="682" y="429">N</text>
+
+  <!-- ============ legend ============ -->
+  <g transform="translate(700,80)">
+    <rect x="0" y="0" width="330" height="112" rx="6" fill="#f7f9fb" stroke="#d5dee7"/>
+    <text class="lgd" x="14" y="26" font-weight="700">מקרא</text>
+    <text class="key" x="14" y="50">PK</text>
+    <text class="lgd" x="46" y="50">מפתח ראשי  Primary Key</text>
+    <text class="fk"  x="14" y="72">FK</text>
+    <text class="lgd" x="46" y="72">מפתח זר  Foreign Key</text>
+    <path class="rel" d="M14,92 L44,92" marker-start="url(#one)" marker-end="url(#crow)"/>
+    <text class="lgd" x="56" y="97">קשר אחד לרבים</text>
+  </g>
+
+  <text class="note" x="415" y="640">Bookings מפרקת את הקשר רבים לרבים שבין Clients ל-Classes לשני קשרים של אחד לרבים.</text>
+  <text class="note" x="415" y="662">אילוץ UNIQUE על הצמד (ClientID, ClassID) מונע רישום כפול של אותו לקוח לאותו שיעור.</text>
+</svg>

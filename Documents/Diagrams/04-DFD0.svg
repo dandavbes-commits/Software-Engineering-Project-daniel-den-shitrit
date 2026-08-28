@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1040" height="620" viewBox="0 0 1040 620" font-family="Segoe UI, Arial, sans-serif">
+  <style>
+    .ttl  { font-size: 26px; font-weight: 700; fill: #1e5a96; text-anchor: middle; }
+    .sub  { font-size: 14px; fill: #6b7f95; text-anchor: middle; }
+    .ext  { fill: #eef1f5; stroke: #445a70; stroke-width: 2.5; }
+    .extt { font-size: 17px; font-weight: 700; fill: #26374a; text-anchor: middle; }
+    .proc { fill: #eaf2fb; stroke: #1e5a96; stroke-width: 3; }
+    .proct{ font-size: 19px; font-weight: 700; fill: #143d66; text-anchor: middle; }
+    .num  { font-size: 22px; font-weight: 700; fill: #1e5a96; text-anchor: middle; }
+    .flow { stroke: #1e5a96; stroke-width: 2; fill: none; }
+    .flowt{ font-size: 13.5px; fill: #26374a; text-anchor: middle; }
+    .ds   { fill: #fff8ec; stroke: #c77b1f; stroke-width: 2; }
+    .dst  { font-size: 14px; font-weight: 700; fill: #7a4d0c; text-anchor: middle; }
+    .dsn  { font-size: 14px; font-weight: 700; fill: #c77b1f; text-anchor: middle; }
+  </style>
+  <defs>
+    <marker id="arr" markerWidth="11" markerHeight="9" refX="10" refY="4.5" orient="auto">
+      <path d="M0,0 L10,4.5 L0,9 z" fill="#1e5a96"/>
+    </marker>
+  </defs>
+
+  <text class="ttl" x="520" y="36">תרשים זרימת נתונים  DFD ברמה 0</text>
+  <text class="sub" x="520" y="60">תרשים הקשר: המערכת כתהליך אחד, מול הגורמים החיצוניים ומאגרי הנתונים</text>
+
+  <!-- ===== external entity: client (right) ===== -->
+  <rect class="ext" x="820" y="130" width="180" height="80" rx="4"/>
+  <text class="extt" x="910" y="177">לקוח</text>
+
+  <!-- ===== external entity: manager (left) ===== -->
+  <rect class="ext" x="40" y="130" width="180" height="80" rx="4"/>
+  <text class="extt" x="130" y="177">מנהל</text>
+
+  <!-- ===== central process ===== -->
+  <circle class="proc" cx="520" cy="290" r="96"/>
+  <text class="num"   x="520" y="270">0</text>
+  <text class="proct" x="520" y="300">מערכת</text>
+  <text class="proct" x="520" y="325">GymTime</text>
+
+  <!-- ===== client flows ===== -->
+  <path class="flow" d="M840,212 C760,250 700,262 616,272" marker-end="url(#arr)"/>
+  <text class="flowt" x="742" y="240">פרטי הרשמה והתחברות</text>
+
+  <path class="flow" d="M842,232 C770,285 700,300 616,300" marker-end="url(#arr)"/>
+  <text class="flowt" x="748" y="300">בקשת הזמנה או ביטול</text>
+
+  <path class="flow" d="M612,330 C700,352 780,300 850,245" marker-end="url(#arr)"/>
+  <text class="flowt" x="742" y="360">לוח שיעורים והזמנות</text>
+
+  <!-- ===== manager flows ===== -->
+  <path class="flow" d="M200,212 C280,250 340,262 424,272" marker-end="url(#arr)"/>
+  <text class="flowt" x="298" y="240">הגדרת שיעורים וסוגים</text>
+
+  <path class="flow" d="M198,232 C270,285 340,300 424,300" marker-end="url(#arr)"/>
+  <text class="flowt" x="292" y="300">אישור או דחיית הזמנה</text>
+
+  <path class="flow" d="M428,330 C340,352 260,300 190,245" marker-end="url(#arr)"/>
+  <text class="flowt" x="298" y="360">רשימת הנרשמים ותפוסה</text>
+
+  <!-- ===== data stores ===== -->
+  <g transform="translate(120,470)">
+    <rect class="ds" x="0" y="0" width="190" height="46"/>
+    <line x1="34" y1="0" x2="34" y2="46" stroke="#c77b1f" stroke-width="2"/>
+    <text class="dsn" x="17" y="30">D1</text>
+    <text class="dst" x="112" y="30">Clients</text>
+  </g>
+  <g transform="translate(340,470)">
+    <rect class="ds" x="0" y="0" width="190" height="46"/>
+    <line x1="34" y1="0" x2="34" y2="46" stroke="#c77b1f" stroke-width="2"/>
+    <text class="dsn" x="17" y="30">D2</text>
+    <text class="dst" x="112" y="30">ClassTypes</text>
+  </g>
+  <g transform="translate(560,470)">
+    <rect class="ds" x="0" y="0" width="190" height="46"/>
+    <line x1="34" y1="0" x2="34" y2="46" stroke="#c77b1f" stroke-width="2"/>
+    <text class="dsn" x="17" y="30">D3</text>
+    <text class="dst" x="112" y="30">Classes</text>
+  </g>
+  <g transform="translate(780,470)">
+    <rect class="ds" x="0" y="0" width="190" height="46"/>
+    <line x1="34" y1="0" x2="34" y2="46" stroke="#c77b1f" stroke-width="2"/>
+    <text class="dsn" x="17" y="30">D4</text>
+    <text class="dst" x="112" y="30">Bookings</text>
+  </g>
+
+  <!-- flows to the data stores (two way) -->
+  <path class="flow" d="M455,378 C380,420 260,440 215,468" marker-end="url(#arr)"/>
+  <path class="flow" d="M240,468 C300,438 400,410 470,378" marker-end="url(#arr)"/>
+
+  <path class="flow" d="M498,386 C470,420 445,440 435,468" marker-end="url(#arr)"/>
+  <path class="flow" d="M455,468 C470,440 490,412 512,386" marker-end="url(#arr)"/>
+
+  <path class="flow" d="M545,386 C570,420 620,440 650,468" marker-end="url(#arr)"/>
+  <path class="flow" d="M670,468 C650,438 600,412 560,384" marker-end="url(#arr)"/>
+
+  <path class="flow" d="M596,340 C680,400 800,440 860,468" marker-end="url(#arr)"/>
+  <path class="flow" d="M885,468 C830,432 700,392 606,352" marker-end="url(#arr)"/>
+
+  <text class="flowt" x="520" y="600">כל חץ כפול מסמן קריאה וכתיבה: המערכת גם שולפת נתונים מהמאגר וגם מעדכנת אותו</text>
+</svg>
